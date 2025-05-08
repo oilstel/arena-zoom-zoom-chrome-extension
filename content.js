@@ -173,6 +173,16 @@ function applyGridSize(size = 260) {
     Math.round(minGap + ((size - minSize) / (maxSize - minSize)) * (maxGap - minGap))
   );
   
+  // Calculate font size proportionally to grid size
+  // Start with 16px at max size (500px) down to 10px at min size (50px)
+  const maxFontSize = 16;
+  const minFontSize = 8;
+  
+  const fontSize = Math.max(
+    minFontSize,
+    Math.round(minFontSize + ((size - minSize) / (maxSize - minSize)) * (maxFontSize - minFontSize))
+  );
+  
   const gridElements = document.querySelectorAll('.virtuoso-grid-list');
   gridElements.forEach(grid => {
     grid.style.gridTemplateColumns = `repeat(auto-fill, minmax(${size}px, 1fr))`;
@@ -183,6 +193,12 @@ function applyGridSize(size = 260) {
   gridLists.forEach(list => {
     list.style.columnGap = `${gapSize}px`;
     list.style.rowGap = `${gapSize}px`;
+  });
+  
+  // Adjust text size in grid items
+  const gridItems = document.querySelectorAll('.virtuoso-grid-item *');
+  gridItems.forEach(item => {
+    item.style.fontSize = `${fontSize}px`;
   });
   
   isUpdating = false;
