@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Are.na Zoom Zoom",
+  "version": "1.0",
+  "description": "Zoom grid items on Are.na",
+  "icons": {
+    "128": "icons/128x128.png"
+  },
+  "action": {},
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.are.na/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+} 
