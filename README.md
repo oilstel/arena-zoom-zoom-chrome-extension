@@ -1,3 +1,5 @@
 # Are.na Zoom Zoom Chrome Extension
 
+Adds a UI slider for zooming the Are.na grid.
+
 ![Example of extension running](https://d2w9rnfcy7mm78.cloudfront.net/36541155/original_879d33e11880525f76892b217e5058c7.gif)
